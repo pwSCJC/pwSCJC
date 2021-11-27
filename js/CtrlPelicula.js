@@ -6,16 +6,13 @@ import {
     getString,
     muestraError
   } from "../lib/util.js";
-import {
-  subeStorage
-} from "../lib/storage.js";
   import {
     muestraPeliculas
   } from "./navegacion.js";
   import {
     tieneRol
   } from "./seguridad.js";
-  
+
   const daoPelicula =
     getFirestore().
       collection("Pelicula");
@@ -55,7 +52,8 @@ import {
         const data = doc.data();
         forma.titulo.value = data.titulo;
         forma.descripcion.value = data.descripcion || "";
-        forma.imagen.value = data.imagen || "";
+        forma.imagen.src =
+        await urlStorage(id);
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
@@ -91,6 +89,9 @@ import {
       await daoPelicula.
         doc(id).
         set(modelo);
+    const imagen =
+      formData.get("imagen");
+    await subeStorage(id, imagen);
       muestraPeliculas();
     } catch (e) {
       muestraError(e);
