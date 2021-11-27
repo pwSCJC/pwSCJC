@@ -13,16 +13,17 @@ import {
     tieneRol
   } from "./seguridad.js";
   import {
-    subeStorage
-  } from "../lib/storage.js";
+    guardaPelicula
+  } from "../lib/peliculas.js";
+
+  const params =
+  new URL(location.href).
+    searchParams;
+  const id = params.get("id");
 
   const daoPelicula =
     getFirestore().
       collection("Pelicula");
-  const params =
-    new URL(location.href).
-      searchParams;
-  const id = params.get("id");
   /** @type {HTMLFormElement} */
   const forma = document["forma"];
   const img = document.
@@ -55,10 +56,12 @@ import {
             import("./tipos.js").
                     Alumno} */
         const data = doc.data();
-        forma.titulo.value = data.titulo;
-        forma.descripcion.value = data.descripcion || "";
+        forma.titulo.value = id || "";
         img.src =
         await urlStorage(id);
+        forma.titulo.value = data.titulo || "";
+        forma.descripcion.value = data.descripcion || "";
+        
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
@@ -75,33 +78,10 @@ import {
   }
   
   /** @param {Event} evt */
-  async function guarda(evt) {
-    try {
-      evt.preventDefault();
-      const formData =
-        new FormData(forma);
-      const titulo = getString(
-          formData, "titulo").trim();  
-      const descripcion = getString(formData, "descripcion").trim();
-      /**
-       * @type {
-          import("./tipos.js").
-                  Alumno} */
-      const modelo = {
-        titulo, 
-        descripcion
-      };
-      await daoPelicula.
-        doc(id).
-        set(modelo);
-    const imagen =
-      formData.get("imagen");
-    await subeStorage(id, imagen);
-      muestraPeliculas();
-    } catch (e) {
-      muestraError(e);
-    }
-  }
+async function guarda(evt) {
+  await guardaPelicula(evt,
+    new FormData(forma), id);
+}
   
   async function elimina() {
     try {
