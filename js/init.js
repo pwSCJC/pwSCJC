@@ -7,7 +7,7 @@
  * quedar igual que en tu
  * servidor */
 // @ts-ignore
-firebase.initializeApp({
+const firebaseConfig = {
   apiKey: "AIzaSyD0lYqXG_I8Zp5ih83euoLVrXEZd66-zlc",
   authDomain: "pwscjc-e87db.firebaseapp.com",
   projectId: "pwscjc-e87db",
@@ -15,4 +15,4 @@ firebase.initializeApp({
   messagingSenderId: "458818571022",
   appId: "1:458818571022:web:8519ab38fa44845803e55f",
   measurementId: "G-BYCT0WQYZM"
-});
+};
