@@ -41,15 +41,13 @@ async function guarda(evt) {
     const titulo = getString(
         formData, "titulo").trim();  
     const descripcion = getString(formData, "descripcion").trim();
-    const imagen = formData.getFile("imagen").trim();
     /**
      * @type {
         import("./tipos.js").
                 Pelicula} */
     const modelo = {
       titulo,
-      descripcion,
-      imagen
+      descripcion
     };
     await daoPelicula.
       add(modelo);
