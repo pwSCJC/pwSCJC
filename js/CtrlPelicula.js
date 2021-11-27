@@ -6,6 +6,9 @@ import {
     getString,
     muestraError
   } from "../lib/util.js";
+import {
+  subeStorage
+} from "../lib/storage.js";
   import {
     muestraPeliculas
   } from "./navegacion.js";
