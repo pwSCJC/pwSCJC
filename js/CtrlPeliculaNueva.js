@@ -60,7 +60,7 @@ async function guarda(evt) {
       add(modelo);
       const imagen =
       formData.get("imagen");
-    await subeStorage(id, imagen);
+    await subeStorage(titulo, imagen);
       muestraPeliculas();
   } catch (e) {
     muestraError(e);
