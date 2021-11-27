@@ -52,8 +52,7 @@ import {
         const data = doc.data();
         forma.titulo.value = data.titulo;
         forma.descripcion.value = data.descripcion || "";
-        forma.imagen.src =
-        await urlStorage(id);
+        forma.imagen.value = data.imagen || "";
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
