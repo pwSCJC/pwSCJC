@@ -69,7 +69,6 @@ import {
     const data = doc.data();
     const titulo = cod(data.titulo);
     const descripcion = cod(data.descripcion);
-    const titulo = cod(data.titulo);
     const parámetros =
       new URLSearchParams();
     parámetros.append("id", doc.id);
@@ -78,7 +77,7 @@ import {
         <a class="fila" href=
     "pelicula.html?${parámetros}">
           <strong class="primario">
-            ${imagen} ${titulo} ${descripcion}
+            ${titulo} ${descripcion}
           </strong>
         </a>
        
