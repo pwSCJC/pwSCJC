@@ -19,9 +19,6 @@ import {
 const daoPelicula =
   getFirestore().
     collection("Pelicula");
-    const params =
-    new URL(location.href).
-      searchParams;
   const id = params.get("id");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
