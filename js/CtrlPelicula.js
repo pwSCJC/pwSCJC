@@ -51,7 +51,6 @@ import {
                     Alumno} */
         const data = doc.data();
         forma.titulo.value = data.titulo;
-        forma.imagen.value = data.imagen || "";
         forma.descripcion.value = data.descripcion || "";
         forma.addEventListener(
           "submit", guarda);
@@ -77,14 +76,12 @@ import {
       const titulo = getString(
           formData, "titulo").trim();  
       const descripcion = getString(formData, "descripcion").trim();
-      const imagen = getFile(formData, "imagen").trim();
       /**
        * @type {
           import("./tipos.js").
                   Alumno} */
       const modelo = {
         titulo, 
-        imagen,
         descripcion
       };
       await daoPelicula.
