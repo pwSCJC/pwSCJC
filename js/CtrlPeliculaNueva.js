@@ -12,6 +12,9 @@ import {
 import {
   tieneRol
 } from "./seguridad.js";
+import {
+  subeStorage
+} from "../lib/storage.js";
 
 const daoPelicula =
   getFirestore().
@@ -51,7 +54,7 @@ async function guarda(evt) {
     };
     await daoPelicula.
       add(modelo);
-    const imagen =
+      const imagen =
       formData.get("imagen");
     await subeStorage(id, imagen);
       muestraPeliculas();
