@@ -19,7 +19,6 @@ import {
 const daoPelicula =
   getFirestore().
     collection("Pelicula");
-  const id = params.get("id");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
 getAuth().onAuthStateChanged(
