@@ -88,6 +88,9 @@ import {
       await daoPelicula.
         doc(id).
         set(modelo);
+      const imagen =
+      formData.get("imagen");
+    await subeStorage(id, imagen);
       muestraPeliculas();
     } catch (e) {
       muestraError(e);
