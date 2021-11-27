@@ -12,6 +12,9 @@ import {
   import {
     tieneRol
   } from "./seguridad.js";
+  import {
+    subeStorage
+  } from "../lib/storage.js";
 
   const daoPelicula =
     getFirestore().
