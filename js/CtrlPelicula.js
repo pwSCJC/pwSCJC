@@ -14,7 +14,7 @@ import {
   } from "./seguridad.js";
   import {
     guardaPelicula
-  } from "../lib/peliculas.js";
+  } from "./peliculas.js";
 
   const params =
   new URL(location.href).
