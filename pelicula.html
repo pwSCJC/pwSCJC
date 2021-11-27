@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,
+       initial-scale=1.0">
+  <title>Pelicula</title>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js">
+    </script>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js">
+    </script>
+  <script
+    src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js">
+    </script>
+  <script src="js/init.js">
+  </script>
+  <script type="module"
+    src="cmp/mi-nav.js">
+    </script>
+  <script type="module"
+    src="cmp/mi-footer.js">
+    </script>
+  <link rel="stylesheet"
+    href="css/estilos.css">
+</head>
+<body>
+  <form name="forma">
+    <mi-nav></mi-nav>
+    <header>
+      <h1>Pelicula</h1>
+      <div class="herramientas">
+        <a href="peliculas.html">
+          Cancelar</a>
+        <button>Guardar</button>
+        <button name="eliminar"
+          type="button">
+          Eliminar
+        </button>
+      </div>
+    </header>
+    <p>
+      <label>
+        Titulo
+        <input name="titulo"
+          type="text" required>
+      </label>
+    </p>
+    <p>
+      <label>
+        Imagen
+        <input name="imagen"
+          type="file" required
+          accept=".png,.jpg,.jpeg,.gif">
+      </label>
+    </p>
+    <p>
+      <label>
+        Descripción
+        <textarea name="descripcion"
+          type="text" required></textarea>
+      </label>
+    </p>
+    <mi-footer></mi-footer>
+  </form>
+  <script type="module"
+    src="js/CtrlPelicula.js">
+    </script>
+</body>
+</html>
+
