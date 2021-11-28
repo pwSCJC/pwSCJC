@@ -52,7 +52,7 @@ import {
       const doc =
         await daoPelicula.
           doc(id).
-          get();
+          get();console.log("falla");
       if (doc.exists) {
 
         const data = doc.data();
@@ -68,6 +68,7 @@ import {
       } else {
         throw new Error(
           "No se encontró.");
+          console.log("No se encontró");
       }
     } catch (e) {
       muestraError(e);
