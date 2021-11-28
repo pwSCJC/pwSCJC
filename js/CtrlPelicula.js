@@ -64,7 +64,8 @@ import {
         await urlStorage(id);
         forma.titulo.value = data.titulo || "";
         forma.descripcion.value = data.descripcion || "";
-          console.log(peliculaId);
+          console.log( forma.peliculaId,
+          data.peliculaI);
         selectPeliculas(
           forma.peliculaId,
           data.peliculaId)
