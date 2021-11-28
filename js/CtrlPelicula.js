@@ -27,8 +27,6 @@ const params =
 const id = params.get("id");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
-const img = document.
-  querySelector("img");
   
 getAuth().onAuthStateChanged(
   protege, muestraError);
