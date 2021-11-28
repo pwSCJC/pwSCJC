@@ -71,6 +71,28 @@ async function busca() {
   
   /** @param {Event} evt */
 async function guarda(evt) {
+  try {
+    evt.preventDefault();
+    const formData =
+      new FormData(forma);
+    const titulo = getString(
+        formData, "titulo").trim();  
+    const descripcion = getString(formData, "descripcion").trim();
+    /**
+     * @type {
+        import("./tipos.js").
+                Alumno} */
+    const modelo = {
+      titulo, 
+      descripcion
+    };
+    await daoAlumno.
+      doc(id).
+      set(modelo);
+    muestraPeliculas();
+  } catch (e) {
+    muestraError(e);
+  }
 }
   
 async function elimina() {
