@@ -87,7 +87,7 @@ async function guarda(evt) {
       titulo, 
       descripcion
     };
-    await daoAlumno.
+    await daoPelicula.
       doc(id).
       set(modelo);
     muestraPeliculas();
