@@ -8,6 +8,9 @@ import {
     muestraError
   } from "../lib/util.js";
   import {
+    urlStorage
+  } from "../lib/storage.js";
+  import {
     tieneRol
   } from "./seguridad.js";
   
@@ -67,6 +70,8 @@ import {
      * @type {import("./tipos.js").
                     Pelicula} */
     const data = doc.data();
+    const img = cod(
+      await urlStorage(doc.id));
     const titulo = cod(data.titulo);
     const descripcion = cod(data.descripcion);
     const parámetros =
@@ -74,8 +79,13 @@ import {
     parámetros.append("id", doc.id);
     return ( /* html */
       `<li>
-        <a class="fila" href=
-    "pelicula.html?${parámetros}">
+      <a class="fila conImagen"
+      href=
+    "usuario.html?${parámetros}">
+        <span class="marco">
+          <img src="${img}"
+        alt="Falta el Avatar">
+    </span>
           <strong class="primario">
             ${titulo} ${descripcion}
           </strong>
