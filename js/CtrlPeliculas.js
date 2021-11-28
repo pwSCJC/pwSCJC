@@ -72,7 +72,7 @@ import {
     const data = doc.data();
     const titulo = cod(data.titulo);
     const img = cod(
-      await urlStorage(titulo));
+      await urlStorage(doc.id));
     const descripcion = cod(data.descripcion);
     const parámetros =
       new URLSearchParams();
