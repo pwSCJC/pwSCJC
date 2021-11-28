@@ -3,6 +3,7 @@ import {
     getFirestore
   } from "../lib/fabrica.js";
   import {
+    eliminaStorage,
     urlStorage
   } from "../lib/storage.js";
   import {
@@ -54,21 +55,14 @@ import {
           doc(id).
           get();
       if (doc.exists) {
-        /**
-         * @type {
-            import("./tipos.js").
-                    Alumno} */
+
         const data = doc.data();
         forma.titulo.value = id || "";
         img.src =
         await urlStorage(id);
-        forma.titulo.value = data.titulo || "";
-        forma.descripcion.value = data.descripcion || "";
-          console.log( forma.peliculaId,
-          data.peliculaI);
         selectPeliculas(
           forma.peliculaId,
-          data.peliculaId)
+          data.peliculaId);
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
