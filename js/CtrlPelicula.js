@@ -3,7 +3,9 @@ import {
     getFirestore
   } from "../lib/fabrica.js";
   import {
-    getString,
+    urlStorage
+  } from "../lib/storage.js";
+  import {
     muestraError
   } from "../lib/util.js";
   import {
@@ -13,7 +15,8 @@ import {
     tieneRol
   } from "./seguridad.js";
   import {
-    guardaPelicula
+    guardaPelicula,
+    selectPeliculas
   } from "./peliculas.js";
 
   const params =
@@ -61,7 +64,9 @@ import {
         await urlStorage(id);
         forma.titulo.value = data.titulo || "";
         forma.descripcion.value = data.descripcion || "";
-        
+        selectPeliculas(
+          forma.peliculaId,
+          data.peliculaId)
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
