@@ -24,7 +24,7 @@ import {
     searchParams;
   const id = params.get("id");
   const daoPelicula = getFirestore().
-  collection("Usuario");
+  collection("Pelicula");
   /** @type {HTMLFormElement} */
   const forma = document["forma"];
   const img = document.
