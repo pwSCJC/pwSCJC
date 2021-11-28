@@ -42,6 +42,7 @@ import {
     if (tieneRol(usuario,
       ["Administrador"])) {
       busca();
+        console.log("buscando");
     }
   }
   
