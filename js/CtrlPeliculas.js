@@ -70,9 +70,9 @@ import {
      * @type {import("./tipos.js").
                     Pelicula} */
     const data = doc.data();
-    const img = cod(
-      await urlStorage(doc.id));
     const titulo = cod(data.titulo);
+    const img = cod(
+      await urlStorage(titulo));
     const descripcion = cod(data.descripcion);
     const parámetros =
       new URLSearchParams();
