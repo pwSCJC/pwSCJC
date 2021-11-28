@@ -11,11 +11,8 @@ import {
 import {
   tieneRol
 } from "./seguridad.js";
-import{
-  guardaPelicula
-}from "./peliculas.js";
 
-const daoAlumno =
+const daoPelicula =
   getFirestore().
     collection("Pelicula");
 const params =
@@ -47,11 +44,13 @@ async function busca() {
         doc(id).
         get();
     if (doc.exists) {
-
+        /**
+       * @type {
+          import("./tipos.js").
+                  Alumno} */
       const data = doc.data();
       forma.titulo.value = data.titulo || "";
-      img.src =
-      await urlStorage(id);
+      forma.descripcion.value = data.descripcion || "";
       forma.addEventListener(
         "submit", guarda);
       forma.eliminar.
@@ -69,8 +68,6 @@ async function busca() {
   
   /** @param {Event} evt */
 async function guarda(evt) {
-  await guardaPelicula(evt,
-    new FormData(forma), id);
 }
   
 async function elimina() {
