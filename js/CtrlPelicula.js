@@ -1,34 +1,33 @@
 import {
-    getAuth,
-    getFirestore
-  } from "../lib/fabrica.js";
-  import {
-    /*urlStorage*/
-  } from "../lib/storage.js";
-  import {
-    muestraError
-  } from "../lib/util.js";
-  import {
-    muestraPeliculas
-  } from "./navegacion.js";
-  import {
-    tieneRol
-  } from "./seguridad.js";
-  import {
-    guardaPelicula,
-    selectPeliculas
-  } from "./peliculas.js";
+  getAuth,
+  getFirestore
+} from "../lib/fabrica.js";
+import {
+  urlStorage
+} from "../lib/storage.js";
+import {
+  muestraError
+} from "../lib/util.js";
+import {
+  muestraPeliculas
+} from "./navegacion.js";
+import {
+  tieneRol
+} from "./seguridad.js";
+import {
+  guardaPelicula,
+  selectPeliculas
+} from "./peliculas.js";
 
-  const params =
+const daoAlumno =
+  getFirestore().
+    collection("Pelicula");
+const params =
   new URL(location.href).
     searchParams;
-  const id = params.get("id");
-  const daoPelicula = getFirestore().
-  collection("Pelicula");
-  /** @type {HTMLFormElement} */
-  const forma = document["forma"];
-  const img = document.
-  querySelector("img");
+const id = params.get("id");
+/** @type {HTMLFormElement} */
+const forma = document["forma"];
   
   getAuth().onAuthStateChanged(
     protege, muestraError);
