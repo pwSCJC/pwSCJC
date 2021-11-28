@@ -23,14 +23,12 @@ import {
   new URL(location.href).
     searchParams;
   const id = params.get("id");
-  console.log(id);
-  const daoPelicula =
-    getFirestore().
-      collection("Pelicula");
+  const daoPelicula = getFirestore().
+  collection("Usuario");
   /** @type {HTMLFormElement} */
   const forma = document["forma"];
   const img = document.
-  getElementById("figure");
+  querySelector("img");
   
   getAuth().onAuthStateChanged(
     protege, muestraError);
