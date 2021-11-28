@@ -3,11 +3,6 @@ import {
   getFirestore
 } from "../lib/fabrica.js";
 import {
-  eliminaStorage,
-  urlStorage
-} from "../lib/storage.js";
-import {
-  cod,
   muestraError
 } from "../lib/util.js";
 import {
@@ -27,6 +22,8 @@ const params =
 const id = params.get("id");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
+const img = document.
+  querySelector("img");
   
 getAuth().onAuthStateChanged(
   protege, muestraError);
@@ -57,9 +54,6 @@ async function busca() {
       const data = doc.data();
       forma.titulo.value = data.titulo || "";
       forma.descripcion.value = data.descripcion || "";
-      const img = cod(
-        await urlStorage(doc.id));
-      forma.figura.value = img || "";
       forma.addEventListener(
         "submit", guarda);
       forma.eliminar.
@@ -86,7 +80,6 @@ async function elimina() {
       await daoPelicula.
         doc(id).
         delete();
-      await eliminaStorage(id);
       muestraPeliculas();
     }
   } catch (e) {
