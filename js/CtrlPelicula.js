@@ -3,6 +3,7 @@ import {
   getFirestore
 } from "../lib/fabrica.js";
 import {
+  getString,
   muestraError
 } from "../lib/util.js";
 import {
