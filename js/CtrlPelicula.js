@@ -30,7 +30,7 @@ import {
   /** @type {HTMLFormElement} */
   const forma = document["forma"];
   const img = document.
-  querySelector("img");
+  getElementById("figure");
   
   getAuth().onAuthStateChanged(
     protege, muestraError);
