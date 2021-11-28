@@ -23,7 +23,7 @@ import {
   new URL(location.href).
     searchParams;
   const id = params.get("id");
-
+  console.log(id);
   const daoPelicula =
     getFirestore().
       collection("Pelicula");
@@ -42,7 +42,6 @@ import {
     if (tieneRol(usuario,
       ["Administrador"])) {
       busca();
-        console.log("buscando");
     }
   }
   
@@ -53,14 +52,16 @@ import {
       const doc =
         await daoPelicula.
           doc(id).
-          get();console.log("falla");
+          get();
       if (doc.exists) {
 
         const data = doc.data();
         forma.titulo.value = id || "";
         img.src =
         await urlStorage(id);
-        console.log("hola");
+        selectPeliculas(
+          forma.peliculaId,
+          data.peliculaId);
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
@@ -69,7 +70,6 @@ import {
       } else {
         throw new Error(
           "No se encontró.");
-          console.log("No se encontró");
       }
     } catch (e) {
       muestraError(e);
