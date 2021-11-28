@@ -21,6 +21,8 @@ const params =
 const id = params.get("id");
 /** @type {HTMLFormElement} */
 const forma = document["forma"];
+const img = document.
+  querySelector("img");
   
 getAuth().onAuthStateChanged(
   protege, muestraError);
@@ -51,6 +53,8 @@ async function busca() {
       const data = doc.data();
       forma.titulo.value = data.titulo || "";
       forma.descripcion.value = data.descripcion || "";
+      img.src =
+        await urlStorage(id);
       forma.addEventListener(
         "submit", guarda);
       forma.eliminar.
