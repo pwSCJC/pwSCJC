@@ -7,6 +7,7 @@ import {
   urlStorage
 } from "../lib/storage.js";
 import {
+  cod,
   muestraError
 } from "../lib/util.js";
 import {
@@ -58,8 +59,9 @@ async function busca() {
       const data = doc.data();
       forma.titulo.value = data.titulo || "";
       forma.descripcion.value = data.descripcion || "";
-      img.src =
-        await urlStorage(id);
+      const img = cod(
+        await urlStorage(doc.id));
+      forma.figura.value = img || "";
       forma.addEventListener(
         "submit", guarda);
       forma.eliminar.
