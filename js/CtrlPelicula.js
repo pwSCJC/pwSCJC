@@ -3,7 +3,6 @@ import {
     getFirestore
   } from "../lib/fabrica.js";
   import {
-    eliminaStorage,
     urlStorage
   } from "../lib/storage.js";
   import {
@@ -60,9 +59,7 @@ import {
         forma.titulo.value = id || "";
         img.src =
         await urlStorage(id);
-        selectPeliculas(
-          forma.peliculaId,
-          data.peliculaId);
+        console.log("hola");
         forma.addEventListener(
           "submit", guarda);
         forma.eliminar.
