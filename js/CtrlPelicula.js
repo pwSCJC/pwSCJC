@@ -3,6 +3,10 @@ import {
   getFirestore
 } from "../lib/fabrica.js";
 import {
+  eliminaStorage,
+  urlStorage
+} from "../lib/storage.js";
+import {
   muestraError
 } from "../lib/util.js";
 import {
@@ -11,6 +15,7 @@ import {
 import {
   tieneRol
 } from "./seguridad.js";
+
 
 const daoPelicula =
   getFirestore().
@@ -81,6 +86,7 @@ async function elimina() {
       await daoPelicula.
         doc(id).
         delete();
+      await eliminaStorage(id);
       muestraPeliculas();
     }
   } catch (e) {
